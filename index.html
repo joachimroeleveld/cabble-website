@@ -146,15 +146,20 @@
           var success = document.createTextNode("You've been sucessfully subscribed.");
           submit.after(success)
 
-          ga('send', 'subscribe_newsletter');
-
           email.val('');
           submit.find('input[type="submit"]').prop('disabled', true);
           submit.removeClass("loading")
+
+          gtag('send', 'subscribe_newsletter');
         },
       });
     })
   })(jQuery);
+
+  window['GoogleAnalyticsObject'] = 'ga';
+  window['ga'] = window['ga'] || function() {
+    (window['ga'].q = window['ga'].q || []).push(arguments)
+  };
 </script>
 </body>
 </html>
