@@ -302,6 +302,7 @@ p {
 
 input[type="submit"] {
     -webkit-appearance: none;
+    font-family: inherit;
 }
 
 input[type="submit"][disabled] {
