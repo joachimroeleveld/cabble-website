@@ -101,40 +101,45 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-  (function () {
+  (function ($) {
     new SmoothScroll('.get-it');
 
     var formUrl = 'https://docs.google.com/forms/d/1pXw9G_cqh_VM81LvaasE3j7KWi9mh_EMaHqoil3Z6H0/formResponse';
+    var submit = $('#submit')
 
-    var submit = document.querySelector("#submit");
-
-    document.querySelector("#subscribe").addEventListener('submit', function (event) {
+    $("#subscribe").on('submit', function (event) {
       event.preventDefault();
 
-      var email = document.getElementById("email").value;
+      var data = {
+        'entry.262357683': $('#email').val(),
+      };
 
-      var xmlHttp = new XMLHttpRequest();
-      xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState == 4) {
+      submit.addClass("loading")
+
+      $.ajax({
+        url: formUrl,
+        type: 'POST',
+        crossDomain: true,
+        dataType: "xml",
+        data: data,
+        success: function(jqXHR, textStatus, errorThrown) {
           var success = document.createTextNode("You've been sucessfully subscribed.");
-          submit.append(success)
+          submit.after(success)
 
-          submit.classList.remove("loading")
-        }
-      }
+          submit.removeClass("loading")
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          var fail = document.createTextNode("Something went wrong.");
+          submit.after(fail)
 
-      submit.classList.add("loading")
-
-      xmlHttp.open("POST", formUrl, true);
-
-      var data = new FormData()
-      data.append('entry.262357683', email)
-
-      xmlHttp.send(data);
+          submit.removeClass("loading")
+        },
+      });
     })
-  })();
+  })(jQuery);
 </script>
 </body>
 </html>
