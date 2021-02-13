@@ -122,7 +122,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
   (function ($) {
-    new SmoothScroll('.get-it');
+    new SmoothScroll('.get-it', {
+      updateURL: false,
+    });
 
     var formUrl = 'https://docs.google.com/forms/d/1pXw9G_cqh_VM81LvaasE3j7KWi9mh_EMaHqoil3Z6H0/formResponse';
     var submit = $('#submit')
