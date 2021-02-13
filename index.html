@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Cabble</title>
+    <title>Private car sharing app | Cabble</title>
     <meta name="description" content="Cabble website">
 
     <link rel="stylesheet" href="css/styles.css?v=1.0">
@@ -13,7 +13,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cabble: .</title>
+    <title>Cabble: App for sharing car ownership.</title>
+    <meta name="description" content="Cabble takes care of the logging, billing, insurance and reservations." />
+
+    <meta property="og:title" content="Cabble: App for sharing car ownership.">
+    <meta property="og:description" content="Cabble takes care of the logging, billing, insurance and reservations.">
+    <meta property="og:image" content="https://cabbleapp.com/img/mockup_og.jpg">
+    <meta property="og:url" content="https://cabbleapp.com/">
 </head>
 
 <body>
@@ -36,7 +42,7 @@
         </aside>
         <section>
             <h2 class="brand-name">Cabble</h2>
-            <h1 class="title">Share your car with people you trust.</h1>
+            <h1 class="title">Share a car with people you trust.</h1>
             <p class="subtitle">
                 Just start driving,<br/>
                 Cabble takes care of the rest.
@@ -109,12 +115,13 @@
 
     var formUrl = 'https://docs.google.com/forms/d/1pXw9G_cqh_VM81LvaasE3j7KWi9mh_EMaHqoil3Z6H0/formResponse';
     var submit = $('#submit')
+    var email = $('#email')
 
     $("#subscribe").on('submit', function (event) {
       event.preventDefault();
 
       var data = {
-        'entry.262357683': $('#email').val(),
+        'entry.262357683': email.val(),
       };
 
       submit.addClass("loading")
@@ -125,16 +132,12 @@
         crossDomain: true,
         dataType: "xml",
         data: data,
-        success: function(jqXHR, textStatus, errorThrown) {
+        complete: function(jqXHR, textStatus, errorThrown) {
           var success = document.createTextNode("You've been sucessfully subscribed.");
           submit.after(success)
 
-          submit.removeClass("loading")
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          var fail = document.createTextNode("Something went wrong.");
-          submit.after(fail)
-
+          email.val('');
+          submit.find('input[type="submit"]').prop('disabled', true);
           submit.removeClass("loading")
         },
       });

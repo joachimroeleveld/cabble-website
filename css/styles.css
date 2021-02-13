@@ -286,6 +286,10 @@ input[type="submit"] {
     -webkit-appearance: none;
 }
 
+input[type="submit"][disabled] {
+    opacity: 0.6;
+}
+
 .submit.loading input {
     color: #000;
 }
@@ -315,7 +319,7 @@ input[type="submit"] {
 }
 
 @media only screen and (min-width: 1000px) {
-    .footer input[type="text"] {
+    .footer input[type="email"] {
         width: 50%;
     }
 }
