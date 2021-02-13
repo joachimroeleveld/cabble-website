@@ -1,0 +1,141 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Cabble</title>
+    <meta name="description" content="Cabble website">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div class="page container">
+
+    <header class="header">
+        <aside>
+            <figure class="mockup">
+                <picture>
+                    <source srcset="img/mockup.png 1x,
+                                    img/mockup@2x.png 2x">
+                    <source srcset="img/mockup.webp 1x,
+                                    img/mockup@2x.webp 2x">
+                    <img src="img/mockup.png"
+                         alt="With Cabble you can share your car with people that you trust."
+                         width="498" height="946">
+                </picture>
+            </figure>
+        </aside>
+        <section>
+            <h2 class="brand-name">Cabble</h2>
+            <h1 class="title">Share your car with people you trust.</h1>
+            <p class="subtitle">
+                Just start driving,<br/>
+                Cabble takes care of the rest.
+            </p>
+            <a class="get-it button" href="#footer">
+                Get it
+            </a>
+        </section>
+    </header>
+
+    <main>
+        <ul class="usps">
+            <li class="free">
+                <div class="inner">
+                    <div class="icon"></div>
+                    <h3>Free</h3>
+                    <p>Cabble is completely free for anyone to use.</p>
+                </div>
+            </li>
+            <li class="insurance">
+                <div class="inner">
+                    <div class="icon"></div>
+                    <h3>Insurance</h3>
+                    <p>Insure each driver for every trip for a small fee.</p>
+                </div>
+            </li>
+            <li class="billing">
+                <div class="inner">
+                    <div class="icon"></div>
+                    <h3>Instant billing</h3>
+                    <p>Get paid for every trip instantly by linking your bank account.</p>
+                </div>
+            </li>
+            <li class="start-stop">
+                <div class="inner">
+                    <div class="icon"></div>
+                    <h3>Automatic start/stop</h3>
+                    <p>Log trips automatically and accurately using iBeacon technology.</p>
+                </div>
+            </li>
+            <li class="availability">
+                <div class="inner">
+                    <div class="icon"></div>
+                    <h3>Manage availability</h3>
+                    <p>Reserve the car for when you really need it.</p>
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <footer class="footer" id="footer">
+        <h2>Want to join the ride?</h2>
+        <p>Leave your email address and we'll keep you posted.</p>
+        <form id="subscribe">
+            <input id="email" type="email" required>
+            <div id="submit" class="submit">
+                <input type="submit" value="Send me updates" class="button button--primary"/>
+                <div class="loader"></div>
+            </div>
+        </form>
+    </footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
+<script type="text/javascript">
+  (function () {
+    new SmoothScroll('.get-it');
+
+    var formUrl = 'https://docs.google.com/forms/d/1pXw9G_cqh_VM81LvaasE3j7KWi9mh_EMaHqoil3Z6H0/formResponse';
+
+    var submit = document.querySelector("#submit");
+
+    document.querySelector("#subscribe").addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var email = document.getElementById("email").value;
+
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState == 4) {
+          if (xmlHttp.status == 200) {
+            alert('success')
+          } else {
+            alert('failure')
+          }
+
+          submit.classList.remove("loading")
+        }
+      }
+
+      submit.classList.add("loading")
+
+      xmlHttp.open("POST", formUrl, true);
+
+      var data = new FormData()
+      data.append('entry.262357683', email)
+
+      xmlHttp.send(data);
+    })
+  })();
+</script>
+</body>
+</html>
