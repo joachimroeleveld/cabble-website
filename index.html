@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cabble: .</title>
 </head>
 
 <body>
@@ -91,7 +93,7 @@
         <form id="subscribe">
             <input id="email" type="email" required>
             <div id="submit" class="submit">
-                <input type="submit" value="Send me updates" class="button button--primary"/>
+                <input type="submit" value="Send me updates" class="button"/>
                 <div class="loader"></div>
             </div>
         </form>
@@ -99,7 +101,7 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js" async></script>
 <script type="text/javascript">
   (function () {
     new SmoothScroll('.get-it');
@@ -116,11 +118,8 @@
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.onreadystatechange = function () {
         if (xmlHttp.readyState == 4) {
-          if (xmlHttp.status == 200) {
-            alert('success')
-          } else {
-            alert('failure')
-          }
+          var success = document.createTextNode("You've been sucessfully subscribed.");
+          submit.append(success)
 
           submit.classList.remove("loading")
         }

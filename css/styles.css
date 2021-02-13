@@ -124,7 +124,8 @@ p {
 }
 
 .mockup {
-    margin: 0 0 -6em;
+    margin: 0 auto -6em;
+    height: auto;
 }
 
 .brand-name {
@@ -139,6 +140,15 @@ p {
     font-size: 1.3em;
 }
 
+@media only screen and (max-width: 1000px) {
+    .mockup img {
+        max-height: 760px;
+        display: block;
+        max-width: 100%;
+        object-fit: contain;
+    }
+}
+
 @media only screen and (min-width: 1000px) {
     .brand-name {
         font-size: 2em;
@@ -149,6 +159,7 @@ p {
     }
 
     .mockup {
+        max-width: initial;
         padding: 3em 4em 0 0em;
         margin: 0 0 -5em;
     }
@@ -271,12 +282,17 @@ p {
     transition: color 0.1s;
 }
 
+input[type="submit"] {
+    -webkit-appearance: none;
+}
+
 .submit.loading input {
     color: #000;
 }
 
 .submit.loading .loader {
     opacity: 1;
+    visibility: visible;
 }
 
 .submit .loader {
@@ -285,7 +301,12 @@ p {
     left: 50%;
     margin-left: -1em;
     opacity: 0;
+    visibility: hidden;
     transition: all 0.2s;
+}
+
+.submit .button {
+    margin-right: 1em;
 }
 
 .footer h2 + p {
