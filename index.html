@@ -20,7 +20,6 @@
     <meta property="og:url" content="https://www.cabbleapp.com/">
     <meta property="og:updated_time" content="1613240921"/>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LHRTN4YD2T"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -505,7 +504,7 @@
         <h2>Want to join the ride?</h2>
         <p>Leave your email address and we'll keep you posted.</p>
         <form id="subscribe">
-            <input id="email" type="email" required>
+            <input id="email" type="email" placeholder="Your email address" required>
             <div id="submit" class="submit">
                 <input type="submit" value="Send me updates" class="button"/>
                 <div class="loader"></div>
@@ -516,45 +515,44 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-  (function ($) {
+  (function () {
     new SmoothScroll('.get-it', {
       updateURL: false,
     });
 
     var formUrl = 'https://docs.google.com/forms/d/1pXw9G_cqh_VM81LvaasE3j7KWi9mh_EMaHqoil3Z6H0/formResponse';
-    var submit = $('#submit')
-    var email = $('#email')
+    var submitWrapper = document.querySelector("#submit");
+    var submit = submitWrapper.querySelector('input');
+    var email = document.querySelector("#email");
 
-    $("#subscribe").on('submit', function (event) {
+    document.querySelector("#subscribe").addEventListener('submit', function (event) {
       event.preventDefault();
 
-      var data = {
-        'entry.262357683': email.val(),
-      };
+      submitWrapper.classList.add('loading');
 
-      submit.addClass("loading")
-
-      $.ajax({
-        url: formUrl,
-        type: 'POST',
-        crossDomain: true,
-        dataType: "xml",
-        data: data,
-        complete: function (jqXHR, textStatus, errorThrown) {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState == 4) {
           var success = document.createTextNode("You've been sucessfully subscribed.");
-          submit.after(success)
+          submitWrapper.append(success)
 
-          email.val('');
-          submit.find('input[type="submit"]').prop('disabled', true);
-          submit.removeClass("loading")
+          email.value = '';
+          submit.disabled = true;
+          submitWrapper.classList.remove('loading');
 
           gtag('event', 'subscribe_newsletter');
-        },
-      });
+        }
+      }
+
+      xmlHttp.open("POST", formUrl, true);
+
+      var data = new FormData()
+      data.append('entry.262357683', email.value)
+
+      xmlHttp.send(data);
     })
-  })(jQuery);
+  })();
 </script>
 </body>
 </html>
