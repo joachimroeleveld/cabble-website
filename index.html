@@ -156,7 +156,7 @@
           submit.find('input[type="submit"]').prop('disabled', true);
           submit.removeClass("loading")
 
-          gtag('send', 'subscribe_newsletter');
+          gtag('event', 'subscribe_newsletter');
         },
       });
     })
