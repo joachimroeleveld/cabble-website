@@ -5,25 +5,31 @@
     <meta charset="utf-8">
 
     <title>Cabble - The app for shared car ownership.</title>
-    <meta name="description" content="Simply drive while Cabble takes care of logging, billing, insurance and reservations." />
+    <meta name="description"
+          content="Split the bill and let Cabble take care of the logging, payments, insurance and reservations."/>
 
-    <link rel="stylesheet" href="css/styles.css?v=2.1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css?v=2.1">
 
     <meta property="og:title" content="The app for shared car ownership | Cabble">
-    <meta property="og:description" content="Simply drive while Cabble takes care of logging, billing, insurance and reservations.">
+    <meta property="og:description"
+          content="Split the bill and let Cabble take care of logging, payments, insurance and reservations.">
     <meta property="og:image" content="https://cabbleapp.com/img/og_image.jpg">
     <meta property="og:url" content="https://www.cabbleapp.com/">
-    <meta property="og:updated_time" content="1613240921" />
+    <meta property="og:updated_time" content="1613240921"/>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LHRTN4YD2T"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
       gtag('js', new Date());
 
       gtag('config', 'G-LHRTN4YD2T');
@@ -43,7 +49,7 @@
                     <source srcset="img/mockup.webp 1x,
                                     img/mockup@2x.webp 2x">
                     <img src="img/mockup.png"
-                         alt="With Cabble you can share your car with people that you trust."
+                         alt="With Cabble you can share your car with the people that you trust."
                          width="498" height="946">
                 </picture>
             </figure>
@@ -52,7 +58,7 @@
             <p class="brand-name">Cabble</p>
             <h1 class="title">Share a car with people you trust.</h1>
             <p class="subtitle">
-                Share a car with a friend, neighbour or<br/>
+                Split the bill with a friend, neighbour or<br/>
                 roommate. Cabble does the paperwork.
             </p>
             <a class="get-it button" href="#footer">
@@ -67,28 +73,28 @@
                 <div class="inner">
                     <div class="icon"></div>
                     <h2>Free</h2>
-                    <p>Cabble is completely free for anyone to use.</p>
+                    <p>Cabble is completely free for everyone.</p>
                 </div>
             </li>
             <li class="insurance">
                 <div class="inner">
                     <div class="icon"></div>
                     <h2>Insurance</h2>
-                    <p>Insure each driver for every trip for a small fee.</p>
+                    <p>Insure drivers for a small fee.</p>
                 </div>
             </li>
             <li class="billing">
                 <div class="inner">
                     <div class="icon"></div>
                     <h2>Instant billing</h2>
-                    <p>Get paid for every trip instantly by linking your bank account.</p>
+                    <p>Get paid as an owner for every trip by linking bank accounts.</p>
                 </div>
             </li>
             <li class="start-stop">
                 <div class="inner">
                     <div class="icon"></div>
                     <h2>Automatic start/stop</h2>
-                    <p>Log trips automatically and accurately using iBeacon technology.</p>
+                    <p>Log trips automatically using iBeacon technology.</p>
                 </div>
             </li>
             <li class="availability">
@@ -142,7 +148,7 @@
         crossDomain: true,
         dataType: "xml",
         data: data,
-        complete: function(jqXHR, textStatus, errorThrown) {
+        complete: function (jqXHR, textStatus, errorThrown) {
           var success = document.createTextNode("You've been sucessfully subscribed.");
           submit.after(success)
 
