@@ -540,7 +540,9 @@
           submit.disabled = true;
           submitWrapper.classList.remove('loading');
 
-          gtag('event', 'subscribe_newsletter');
+          gtag('event', 'newsletter_subscribe_complete', {
+            event_category: 'engagement',
+          });
         }
       }
 
