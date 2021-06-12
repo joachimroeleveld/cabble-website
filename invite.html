@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Install the Cabble app.</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
+    <style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style>
+
+    <!-- implement javascript on web page that first first tries to open the deep link
+        1. if user has app installed, then they would be redirected to open the app to specified screen
+        2. if user doesn't have app installed, then their browser wouldn't recognize the URL scheme
+        and app wouldn't open since it's not installed. In 1 second (1000 milliseconds) user is redirected
+        to download app from app store.
+     -->
+    <script>
+      window.onload = function() {
+        var inviteCode = location.search.match(/inviteCode=([^&]+)/);
+        if (inviteCode === null) {
+          return;
+        }
+
+        window.location = 'cabble://invite.redeem/' + inviteCode[1];
+
+        setTimeout("window.location = 'https://www.cabbleapp.com/';", 1000);
+      }
+    </script>
+</head>
+<body>
+
+<form action="https://www.cabbleapp.com/">
+    <input type="submit" value="Download the Cabble app" />
+</form>
+
+</body>
+</html>
