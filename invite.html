@@ -3,11 +3,20 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Install the Cabble app.</title>
+    <title>An invite for Cabble app.</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
-    <style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            padding: 1em;
+            margin: 0;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <!-- implement javascript on web page that first first tries to open the deep link
         1. if user has app installed, then they would be redirected to open the app to specified screen
@@ -24,11 +33,16 @@
 
         window.location = 'cabble://invite.redeem/' + inviteCode[1];
 
-        setTimeout("window.location = 'https://www.cabbleapp.com/';", 1000);
+        setTimeout("window.location = 'https://www.cabbleapp.com/';", 500);
       }
     </script>
 </head>
 <body>
+
+<p>
+    You were invited by someone to use Cabble, an app for personal car sharing.
+    Install the app or open the in-app link to get started.
+</p>
 
 <form action="https://www.cabbleapp.com/">
     <input type="submit" value="Download the Cabble app" />
