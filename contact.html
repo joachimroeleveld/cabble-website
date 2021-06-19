@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 1.5em 0 3em;
+    }
+
+    .logo {
+        color: #6B22FF;
+        font-weight: 800;
+        font-size: 1.5em;
+        margin-bottom: 1.5em;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+    }
+
+    .sections {
+        display: flex;
+    }
+
+    .sections > section {
+        flex-basis: 50%;
+    }
+</style>
+<body>
+
+<div class="container">
+
+    <a href="/" class="logo">Cabble</a>
+
+    <h1>Contact us</h1>
+
+    <div class="sections">
+        <section>
+            <h2>Support</h2>
+            <p>support@cabbleapp.com</p>
+        </section>
+
+        <section>
+            <h2>Other inquiries</h2>
+            <p>contact@cabbleapp.com</p>
+        </section>
+    </div>
+
+</div>
+
+<script>
+  WebFontConfig = {
+    google: {families: ['Montserrat:400,800']}
+  };
+
+  (function (d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+    wf.async = true;
+    s.parentNode.insertBefore(wf, s);
+  })(document);
+</script>
+
+</body>
+</html>

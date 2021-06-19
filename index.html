@@ -86,7 +86,7 @@
             background-size: 50% auto;
             color: #fff;
             padding-top: 6em;
-            padding-bottom: 6em;
+            padding-bottom: 2em;
             margin-top: 4em;
         }
 
@@ -372,6 +372,29 @@
             margin: 0.5em 0;
         }
 
+        .menu {
+            margin-top: 2.5em;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 0 0.5em;
+            display: inline-block;
+        }
+
+        .menu ul li:first-child {
+            padding-left: 0;
+        }
+
+        .menu a {
+            color: inherit;
+            font-size: 0.8em;
+        }
+
         @media only screen and (min-width: 1000px) {
             .footer input[type="email"] {
                 width: 50%;
@@ -509,6 +532,18 @@
                 <div class="loader"></div>
             </div>
         </form>
+
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="/contact.html">Contact</a>
+                </li>
+                |
+                <li>
+                    <a href="/privacy-policy-mobile.html">Privacy policy</a>
+                </li>
+            </ul>
+        </nav>
     </footer>
 
 </div>
