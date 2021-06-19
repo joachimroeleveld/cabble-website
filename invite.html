@@ -25,16 +25,25 @@
         to download app from app store.
      -->
     <script>
-      window.onload = function() {
+      (function() {
         var inviteCode = location.search.match(/inviteCode=([^&]+)/);
         if (inviteCode === null) {
           return;
         }
 
-        window.location = 'cabble://invite.redeem/' + inviteCode[1];
+        var inviteUrl = 'cabble://invite.redeem/' + inviteCode[1];
 
-        setTimeout("window.location = 'https://www.cabbleapp.com/';", 500);
-      }
+        window.onload = function() {
+          window.location = inviteUrl;
+
+          const codeForm = document.getElementById('code-form');
+
+          codeForm.action = inviteUrl;
+          codeForm.style = 'display: block; margin-top: 1em;';
+
+          setTimeout("window.location = 'https://www.cabbleapp.com/';", 2000);
+        }
+      })()
     </script>
 </head>
 <body>
@@ -46,6 +55,10 @@
 
 <form action="https://www.cabbleapp.com/">
     <input type="submit" value="Download the Cabble app" />
+</form>
+
+<form action="" id="code-form" style="display: none;">
+    <input type="submit" value="Redeem code" />
 </form>
 
 </body>
