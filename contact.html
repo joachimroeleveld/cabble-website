@@ -33,12 +33,11 @@
         text-decoration: none;
     }
 
-    .sections {
-        display: flex;
-    }
-
-    .sections > section {
-        flex-basis: 50%;
+    @media all and (min-width: 800px) {
+        .sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
     }
 </style>
 <body>
